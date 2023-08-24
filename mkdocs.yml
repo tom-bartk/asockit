@@ -1,0 +1,54 @@
+site_name: Asockit
+repo_url: https://github.com/tom-bartk/asockit
+
+theme:
+  name: material
+  icon:
+    logo: material/chat
+
+  palette:
+    scheme: gruvbox
+  font: false
+
+nav:
+  - Overview: "index.md"
+  - Installation: "installation.md"
+  - Quickstart: "quickstart.md"
+  - API Documentation:
+      - SocketReader: "api/reader.md"
+      - SocketWriter: "api/writer.md"
+      - Connection: "api/connection.md"
+
+extra_css:
+  - "css/extra.css"
+
+plugins:
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            members_order: source
+            separate_signature: true
+            show_symbol_type_heading: true
+            show_source: false
+            show_bases: false
+            show_root_heading: true
+            show_root_full_path: false
+            docstring_options:
+              ignore_init_summary: true
+            merge_init_into_class: false
+            line_length: 90
+            show_signature_annotations: true
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: Page contents
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

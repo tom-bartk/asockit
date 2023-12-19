@@ -70,6 +70,12 @@ class TestAsyncioWritableConnection:
 
         writer.write.assert_has_calls(expected_calls)
 
+    async def test_close__closes_writer(self, writable_sut, writer) -> None:
+        await writable_sut.close()
+
+        writer.close.assert_called_once()
+        writer.wait_closed.assert_awaited_once()
+
 
 @pytest.mark.asyncio()
 class TestAsyncioReadableConnection:

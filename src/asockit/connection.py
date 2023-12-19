@@ -62,3 +62,8 @@ class AsyncioWritableConnection(WritableConnection):
             if line:
                 self._writer.write(f"{line}\n".encode())
                 await self._writer.drain()
+
+    async def close(self) -> None:
+        """Close the connection."""
+        self._writer.close()
+        await self._writer.wait_closed()

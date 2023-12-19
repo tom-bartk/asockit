@@ -23,3 +23,7 @@ class SocketWriter:
             data (str): Data to write over the connection.
         """
         await self._connection.writeline(data)
+
+    async def close(self) -> None:
+        """Close the underlying connection."""
+        await self._connection.close()

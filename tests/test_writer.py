@@ -23,3 +23,11 @@ class TestWrite:
         await sut.write(data)
 
         connection.writeline.assert_awaited_once_with(data)
+
+
+@pytest.mark.asyncio()
+class TestClose:
+    async def test_closes_connection(self, sut, connection) -> None:
+        await sut.close()
+
+        connection.close.assert_awaited_once()

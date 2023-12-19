@@ -22,6 +22,10 @@ class WritableConnection(Protocol):
             line (str): The line to send.
         """
 
+    @abstractmethod
+    async def close(self) -> None:
+        """Close the connection."""
+
 
 class ReadableConnection(Protocol):
     """A connection that can read data."""

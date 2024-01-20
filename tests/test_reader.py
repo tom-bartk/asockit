@@ -3,12 +3,7 @@ from unittest.mock import AsyncMock, create_autospec
 
 import pytest
 
-from src.asockit import (
-    ReadableConnection,
-    ReaderAlreadyStartedError,
-    SocketReader,
-    SocketReaderDelegate,
-)
+from src.asockit import ReadableConnection, SocketReader, SocketReaderDelegate
 
 
 @pytest.fixture()
@@ -42,21 +37,6 @@ class TestStart:
         await asyncio.wait_for(sut.start(), timeout=0.01)
 
         delegate.on_message.assert_called_with("foo")
-
-    async def test_when_starting_after_already_started__raises_error(
-        self, sut, connection, delegate
-    ) -> None:
-        async def start_twice(reader: SocketReader) -> None:
-            try:
-                async with asyncio.TaskGroup() as group:
-                    group.create_task(sut.start())
-                    group.create_task(sut.start())
-            except* ReaderAlreadyStartedError as excgroup:
-                for exc in excgroup.exceptions:
-                    raise exc
-
-        with pytest.raises(ReaderAlreadyStartedError):
-            await start_twice(sut)
 
 
 @pytest.mark.asyncio()

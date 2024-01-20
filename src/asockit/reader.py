@@ -6,14 +6,7 @@ from weakref import ReferenceType, ref
 
 from .abc import ReadableConnection
 
-__all__ = ["ReaderAlreadyStartedError", "SocketReader", "SocketReaderDelegate"]
-
-
-class ReaderAlreadyStartedError(Exception):
-    """Raised when attempting to start an already started `SocketReader`."""
-
-    def __init__(self):
-        super().__init__("SocketReader has already started reading.")
+__all__ = ["SocketReader", "SocketReaderDelegate"]
 
 
 class SocketReaderDelegate(Protocol):
@@ -58,15 +51,13 @@ class SocketReader:
         To stop reading, await the `stop` coroutine.
 
         Raises:
-            ReaderAlreadyStartedError: Raised when the reader has already started reading.
             ConnectionClosedError: Raised when the connection has closed.
         """
-        if not self._is_task_running():
+        task: asyncio.Task | None = self._task
+        if not task or (task.cancelled() or task.cancelling()):
             self._is_reading = True
             self._task = asyncio.create_task(self._start_reading())
             await self._task
-        else:
-            raise ReaderAlreadyStartedError()
 
     async def stop(self) -> None:
         """Stop reading data from the connection.
@@ -100,17 +91,3 @@ class SocketReader:
                 if delegate:
                     delegate.on_message(message)
                 await asyncio.sleep(0)
-
-    def _is_task_running(self) -> bool:
-        """Check if reading task is running.
-
-        Task is running when it's not `None`, and is not cancelled or
-        not actively being cancelled.
-
-        Returns:
-            `True` if task is running; `False`, otherwise.
-        """
-        task: asyncio.Task | None = self._task
-        if task:
-            return not (task.cancelled() or task.cancelling())
-        return False

@@ -13,7 +13,9 @@ RESULTS_DIR.mkdir(exist_ok=True)
 
 @nox.session(python=PYTHON_DEFAULT_VERSION)
 def test(session: nox.Session) -> None:
-    session.install("pytest", "pytest-asyncio", "pytest-cov")
+    session.install(
+        "pytest", "pytest-asyncio", "coverage==7.3.1", "pytest-cov", "coverage[toml]"
+    )
     output_file = RESULTS_DIR / "test.xml"
     session.run("pytest", "--junit-xml", str(output_file), "--cov=src.asockit", "--cov-report=term-missing")
     session.notify("coverage")

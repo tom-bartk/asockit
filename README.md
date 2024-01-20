@@ -1,28 +1,28 @@
 <div align="center">
   <a href="https://github.com/tom-bartk/asockit">
-    <img src="https://asockit.tombartk.com/images/logo.png" alt="Logo" width="358" height="99">
+    <img src="https://asockit.tombartk.com/images/logo.png" alt="Logo" width="358" height="99"/>
   </a>
 
 <div align="center">
 <a href="https://jenkins.tombartk.com/job/asockit/">
-  <img alt="Jenkins" src="https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fjenkins.tombartk.com%2Fjob%2Fasockit">
+  <img alt="Jenkins" src="https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fjenkins.tombartk.com%2Fjob%2Fasockit"/>
 </a>
 <a href="https://jenkins.tombartk.com/job/asockit/lastCompletedBuild/testReport/">
-  <img alt="Jenkins tests" src="https://img.shields.io/jenkins/tests?jobUrl=https%3A%2F%2Fjenkins.tombartk.com%2Fjob%2Fasockit">
+  <img alt="Jenkins tests" src="https://img.shields.io/jenkins/tests?jobUrl=https%3A%2F%2Fjenkins.tombartk.com%2Fjob%2Fasockit"/>
 </a>
 <a href="https://jenkins.tombartk.com/job/asockit/lastCompletedBuild/coverage/">
-  <img alt="Jenkins Coverage" src="https://img.shields.io/jenkins/coverage/apiv4?jobUrl=https%3A%2F%2Fjenkins.tombartk.com%2Fjob%2Fasockit%2F">
+  <img alt="Jenkins Coverage" src="https://img.shields.io/jenkins/coverage/apiv4?jobUrl=https%3A%2F%2Fjenkins.tombartk.com%2Fjob%2Fasockit%2F"/>
 </a>
 <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
-  <img alt="PyPI - License" src="https://img.shields.io/pypi/l/asockit">
+  <img alt="PyPI - License" src="https://img.shields.io/pypi/l/asockit"/>
 </a>
 <a href="https://pypi.org/project/asockit/">
-  <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/asockit">
+  <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/asockit"/>
 </a>
 <a href="https://pypi.org/project/asockit/">
-  <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/asockit">
+  <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/asockit"/>
 </a>
-<a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff" style="max-width:100%;"></a>
+<a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff" style="max-width:100%;"/></a>
 </div>
 
   <p align="center">
